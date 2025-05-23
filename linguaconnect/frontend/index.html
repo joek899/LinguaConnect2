@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinguaConnect - Your Collaborative Dictionary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        .search-results-container {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-indigo-600">LinguaConnect</a>
+            <div class="space-x-4">
+                <a href="#search" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Search</a>
+                <a href="#contribute" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Contribute</a>
+                <a href="#about" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">About</a>
+                <a href="#login" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium shadow">Login/Register</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-8">
+
+        <section id="search" class="mb-12 p-8 bg-white rounded-lg shadow-lg">
+            <h1 class="text-4xl font-bold text-center text-gray-800 mb-2">Explore Languages</h1>
+            <p class="text-center text-gray-600 mb-8">Search our vast multilingual dictionary or contribute your knowledge.</p>
+            <div class="max-w-2xl mx-auto">
+                <div class="flex items-center border-2 border-indigo-500 rounded-lg overflow-hidden">
+                    <select id="language-select" class="p-4 text-gray-700 bg-gray-50 focus:outline-none border-r-2 border-indigo-500">
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                        <option value="fr">Français</option>
+                        <option value="de">Deutsch</option>
+                        <option value="yo">Yorùbá</option>
+                        <option value="ha">Hausa</option>
+                        <option value="ig">Igbo</option>
+                    </select>
+                    <input type="text" id="search-input" placeholder="Enter a word..." class="w-full p-4 text-gray-700 focus:outline-none">
+                    <button id="search-button" class="bg-indigo-600 hover:bg-indigo-700 text-white p-4 px-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div id="search-results" class="mt-8 max-w-3xl mx-auto search-results-container">
+                <p id="no-results" class="text-center text-gray-500 py-4 hidden">No results found. Try another word or contribute this word!</p>
+                <p id="initial-message" class="text-center text-gray-500 py-4">Enter a word and select a language to search.</p>
+            </div>
+        </section>
+
+        <section id="contribute" class="mb-12 p-8 bg-indigo-600 text-white rounded-lg shadow-lg text-center">
+            <h2 class="text-3xl font-bold mb-4">Help Us Grow!</h2>
+            <p class="mb-6 text-indigo-100">LinguaConnect thrives on community contributions. Share your language expertise, add new words, translations, or examples.</p>
+            <button class="bg-white hover:bg-gray-100 text-indigo-600 font-semibold py-3 px-8 rounded-lg shadow transition duration-300">
+                Start Contributing
+            </button>
+        </section>
+
+        <section id="featured" class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-6 text-center">Featured Content</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold text-indigo-700 mb-2">Word of the Day (Español)</h3>
+                    <p class="text-3xl font-bold text-gray-800">Alegría</p>
+                    <p class="text-gray-600 mb-1">/a.leˈɣɾi.a/</p>
+                    <p class="text-gray-600">Meaning: Joy, happiness</p>
+                    <p class="text-sm text-gray-500 italic mt-2">"Sintió una gran alegría al ver a su familia." (He felt great joy upon seeing his family.)</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold text-green-700 mb-2">Recently Added!</h3>
+                    <p class="text-2xl font-bold text-gray-800">Swahili (Kiswahili)</p>
+                    <p class="text-gray-600">Explore words and phrases in Swahili, a Bantu language spoken by millions in East Africa.</p>
+                    <a href="#" class="text-green-600 hover:underline mt-3 inline-block">Browse Swahili</a>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold text-purple-700 mb-2">Contribution Spotlight</h3>
+                    <p class="text-gray-600">Thanks to our community, we've added <strong>500+ new Yorùbá terms</strong> this month!</p>
+                    <p class="text-gray-600 mt-1">Help us expand our Yorùbá dictionary further.</p>
+                    <a href="#contribute" class="text-purple-600 hover:underline mt-3 inline-block">Contribute to Yorùbá</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-8 bg-white rounded-lg shadow-lg p-8">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4 text-center">About LinguaConnect</h2>
+            <p class="text-gray-600 leading-relaxed max-w-3xl mx-auto text-center">
+                LinguaConnect is a community-driven platform dedicated to building a comprehensive, multilingual dictionary.
+                Our mission is to connect people through language, making linguistic knowledge accessible to everyone and
+                providing a space for language enthusiasts to share and preserve their linguistic heritage.
+            </p>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 py-8 mt-12">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; <span id="current-year"></span> LinguaConnect. All rights reserved.</p>
+            <p class="text-sm mt-1">
+                <a href="#" class="hover:text-indigo-400">Privacy Policy</a> |
+                <a href="#" class="hover:text-indigo-400">Terms of Service</a> |
+                <a href="#" class="hover:text-indigo-400">Contact Us</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        const searchButton = document.getElementById('search-button');
+        const searchInput = document.getElementById('search-input');
+        const languageSelect = document.getElementById('language-select');
+        const searchResultsContainer = document.getElementById('search-results');
+        const noResultsMessage = document.getElementById('no-results');
+        const initialMessage = document.getElementById('initial-message');
+
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        function performSearch() {
+            const query = searchInput.value.trim();
+            const lang = languageSelect.value;
+
+            searchResultsContainer.innerHTML = '';
+            initialMessage.classList.add('hidden');
+            noResultsMessage.classList.add('hidden');
+
+            if (!query) {
+                searchResultsContainer.innerHTML = '<p class="text-center text-red-500 py-4">Please enter a word to search.</p>';
+                return;
+            }
+
+            // Call your backend API
+            fetch(`http://localhost:5000/api/dictionary/search?q=${encodeURIComponent(query)}&language=${encodeURIComponent(lang)}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.entries && data.entries.length > 0) {
+                        // For now, just show the first result
+                        const entry = data.entries[0];
+                        displayBackendResult(entry);
+                    } else {
+                        noResultsMessage.classList.remove('hidden');
+                    }
+                })
+                .catch(err => {
+                    searchResultsContainer.innerHTML = `<p class="text-center text-red-500 py-4">Error: ${err.message}</p>`;
+                });
+        }
+
+        function displayBackendResult(entry) {
+            let definitionsHtml = '';
+            if (entry.definitions && entry.definitions.length > 0) {
+                entry.definitions.forEach((def, index) => {
+                    definitionsHtml += `
+                        <div class="mt-2">
+                            ${entry.partOfSpeech ? `<p class="text-sm text-gray-500">Part of Speech: ${entry.partOfSpeech}</p>` : ''}
+                            <p class="text-gray-700">${index + 1}. ${def.meaning}</p>
+                            ${def.examples && def.examples.length > 0 ? `<p class="text-sm text-gray-500 italic">"${def.examples.join('; ')}"</p>` : ''}
+                        </div>
+                    `;
+                });
+            } else {
+                definitionsHtml = '<p class="text-gray-600">No definitions available.</p>';
+            }
+
+            let translationsHtml = '';
+            if (entry.translations && entry.translations.length > 0) {
+                translationsHtml += '<h4 class="font-medium text-gray-700 mt-3">Translations:</h4><ul class="list-disc list-inside text-gray-600">';
+                entry.translations.forEach(t => {
+                    if (t.language && t.words && t.words.length > 0) {
+                        translationsHtml += `<li><strong class="uppercase">${t.language}:</strong> ${t.words.join(', ')}</li>`;
+                    }
+                });
+                translationsHtml += '</ul>';
+            }
+
+            const resultElement = `
+                <div class="bg-gray-50 p-6 rounded-lg shadow mb-4 animate-fadeIn">
+                    <h3 class="text-xl font-semibold text-indigo-700">Word: <span class="capitalize">${entry.word}</span></h3>
+                    <p class="text-gray-600"><strong>Language:</strong> <span class="capitalize">${entry.language}</span></p>
+                    <div class="mt-2">${definitionsHtml}</div>
+                    ${translationsHtml}
+                    <div class="mt-4">
+                        <button class="text-xs text-indigo-500 hover:underline">Suggest an edit</button>
+                        <button class="text-xs text-green-500 hover:underline ml-2">Add example</button>
+                    </div>
+                </div>
+            `;
+            searchResultsContainer.innerHTML = resultElement;
+        }
+
+        // Basic animation for search results
+        const styleSheet = document.createElement("style");
+        styleSheet.type = "text/css";
+        styleSheet.innerText = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .animate-fadeIn {
+                animation: fadeIn 0.5s ease-out forwards;
+            }
+        `;
+        document.head.appendChild(styleSheet);
+    </script>
+</body>
+</html> 
